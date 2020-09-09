@@ -6,17 +6,18 @@ const search = document.querySelector("input");
 const message1 = document.querySelector("#message-1");
 const message2 = document.querySelector("#message-2");
 
+if (message1 && message2) {
+  message1.textContent = "";
+  message2.textContent = " ";
+}
 
-message1.textContent = "";
-message2.textContent = "";
-
-weatherForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const location = search.value;
-  message1.textContent = "Loading...";
-  message2.textContent = "";
-  fetch(`/weather?address=${location}`).then(
-    (response) => {
+if (weatherForm) {
+  weatherForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const location = search.value;
+    message1.textContent = "Loading...";
+    message2.textContent = "";
+    fetch(`/weather?address=${location}`).then((response) => {
       response.json().then((data) => {
         if (data.error) {
           message1.textContent = data.error;
@@ -25,9 +26,8 @@ weatherForm.addEventListener("submit", (e) => {
           message2.textContent = data.forecast;
         }
       });
-    }
-  );
+    });
 
-  log(location);
-  
-});
+    log(location);
+  });
+}
