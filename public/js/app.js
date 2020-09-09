@@ -29,4 +29,5 @@ weatherForm.addEventListener("submit", (e) => {
   );
 
   log(location);
+  
 });
