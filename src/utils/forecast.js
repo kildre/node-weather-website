@@ -11,13 +11,15 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error) {
       callback(chalk.red("Unable to find location you requested"));
     } else {
+      log(body.current)
       const current = body.current.temperature;
       const feelsLike = body.current.feelslike;
       const weatherDescription = body.current.weather_descriptions;
       const windSpeed = body.current.wind_speed;
       const windDirection = body.current.wind_dir;
+      const time = body.current.observation_time;
       callback(undefined, 
-        `The conditions are ${weatherDescription}.` + `It is currently ${current} degrees out and it feels like ${feelsLike} degrees.  ` +   
+        `At ${time} ...  The conditions are ${weatherDescription}.` + `It is currently ${current} degrees out and it feels like ${feelsLike} degrees.  ` +   
         `The wind is ${windSpeed} mph coming from the ${windDirection}`
 
       );
