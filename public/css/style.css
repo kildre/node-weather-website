@@ -1,0 +1,27 @@
+body {
+    font: 'Helvetica', san-serif;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #4792bf;
+    font-size: 63px;
+}
+
+h2 {
+    color: hotpink;
+}
+
+
+.footer {
+    background: #d9eff5;
+    padding: 20px;
+}
+
